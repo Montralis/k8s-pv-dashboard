@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Persistent Volumes Dashboard</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container my-4">
+    <h1 class="text-center">Persistent Volumes and PVCs Dashboard</h1>
+
+    <!-- Table for Persistent Volumes -->
+    <h2>Persistent Volumes</h2>
+    <table class="table table-striped table-bordered">
+        <thead class="thead-dark">
+        <tr>
+            <th>Name</th>
+            <th>Size</th>
+            <th>Creation Time</th>
+            <th>Labels</th>
+            <th>Status</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{range .PVs}}
+        <tr>
+            <td>{{.Name}}</td>
+            <td>{{.Size}}</td>
+            <td>{{.CreationTime}}</td>
+            <td>
+                {{range $key, $value := .Labels}}
+                <strong>{{$key}}:</strong> {{$value}}<br>
+                {{end}}
+            </td>
+            <td>{{.Status}}</td>
+        </tr>
+        {{end}}
+        </tbody>
+    </table>
+
+    <!-- Table for Persistent Volume Claims -->
+    <h2>Persistent Volume Claims</h2>
+    <table class="table table-striped table-bordered">
+        <thead class="thead-dark">
+        <tr>
+            <th>Name</th>
+            <th>Namespace</th>
+            <th>Creation Time</th>
+            <th>Labels</th>
+            <th>Status</th>
+            <th>PVUUID</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{range .PVCs}}
+        <tr>
+            <td>{{.Name}}</td>
+            <td>{{.Namespace}}</td>
+            <td>{{.CreationTime}}</td>
+            <td>
+                {{range $key, $value := .Labels}}
+                <strong>{{$key}}:</strong> {{$value}}<br>
+                {{end}}
+            </td>
+            <td>{{.Status}}</td>
+            <td>{{.PVUUID}}</td>
+        </tr>
+        {{end}}
+        </tbody>
+    </table>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

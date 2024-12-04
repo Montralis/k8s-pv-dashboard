@@ -1,0 +1,61 @@
+{
+  "nodes": [
+    {
+      "name": "node1",
+      "pvs": [
+        {
+          "name": "pv1",
+          "size": "50Gi"
+        },
+        {
+          "name": "pv2",
+          "size": "100Gi"
+        }
+      ]
+    },
+    {
+      "name": "node2",
+      "pvs": [
+        {
+          "name": "pv3",
+          "size": "30Gi"
+        }
+      ]
+    },
+    {
+      "name": "node3",
+      "pvs": [
+        {
+          "name": "pv4",
+          "size": "60Gi"
+        },
+        {
+          "name": "pv5",
+          "size": "200Gi"
+        }
+      ]
+    },
+    {
+      "name": "node4",
+      "pvs": [
+        {
+          "name": "pv6",
+          "size": "80Gi"
+        }
+      ]
+    },
+    {
+      "name": "node5",
+      "pvs": [
+        {
+          "name": "pv7",
+          "size": "40Gi"
+        },
+        {
+          "name": "pv8",
+          "size": "120Gi"
+        }
+      ]
+    }
+  ]
+}
